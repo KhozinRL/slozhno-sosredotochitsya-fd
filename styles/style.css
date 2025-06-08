@@ -69,6 +69,10 @@
   z-index: -1;
 
   background-color: var(--page-bg-color);
+  background: var(--cover-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .rec-light {
@@ -107,11 +111,6 @@
   /* Для абсолютного позиционирования псевдоэлементов decorated-zone и rec */
   position: relative;
   padding: var(--padding-size);
-
-  background: var(--cover-image);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 .header__theme-menu-list {
@@ -265,7 +264,7 @@
 }
 
 @media (width >= 768px) {
-  .main__section_by-images .main__section-content{
+  .main__section_by-images .main__section-content {
     grid-template-columns: repeat(3, 1fr);
   }
 
