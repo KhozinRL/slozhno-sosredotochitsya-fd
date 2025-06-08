@@ -1,5 +1,321 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+.title {
+  color: var(--title-color);
+
+  font-weight: bold;
+  font-size: var(--title-font-size);
+  line-height: 82.5%;
+}
+
+.text-link {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+.text-link:hover {
+  border-block-end: 0.1em solid;
+}
+
+.text-link:focus {
+  outline: 0;
+}
+
+.text-link:focus-visible {
+  outline: 1px solid;
+}
+
+.text-link:active {
+  border: 0;
+}
+
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  top: var(--padding-size);
+  right: var(--padding-size);
+
+  display: block;
+  inline-size: 25px;
+  block-size: 25px;
+
+  border: 1px solid var(--header-accent-color);
+  border-bottom: none;
+  border-left: none;
+}
+
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  bottom: var(--padding-size);
+  left: var(--padding-size);
+
+  display: block;
+  inline-size: 25px;
+  block-size: 25px;
+
+  border: 1px solid var(--header-accent-color);
+  border-top: none;
+  border-right: none;
+}
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap);
+
+  font-family: var(--page-font);
+  font-size: var(--font-size);
+  line-height: 1.3em;
+
+  z-index: -1;
+
+  background-color: var(--page-bg-color);
+}
+
+.rec-light {
+  display: var(--rec-light-display);
+  gap: 10px;
+  align-items: center;
+
+  position: absolute;
+  top: calc(var(--padding-size) + 1px);
+  right: calc((25px - 9px) / 2 + var(--padding-size));
+
+  color: var(--header-accent-color);
+}
+
+.rec-light::after {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 9px;
+  background-color: var(--header-accent-color);
+  box-shadow: 0 0 4px 2px var(--header-accent-color);
+
+  border-radius: 50%;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  justify-items: end;
+
+  height: 100vh;
+  min-height: 668px;
+
+  /* Для абсолютного позиционирования псевдоэлементов decorated-zone и rec */
+  position: relative;
+  padding: var(--padding-size);
+
+  background: var(--cover-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--menu-gap);
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+}
+
+.header__theme-menu-button {
+  border: none;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  color: var(--header-accent-color);
+  text-transform: lowercase;
+
+  padding-inline: 13px;
+  padding-block: 1px;
+}
+
+.header__theme-menu-button:hover {
+  cursor: pointer;
+  outline: 1px solid var(--accent-color-opacity);
+}
+
+.header__theme-menu-button.header__theme-menu-button_active {
+  outline: 1px solid currentColor;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: 0;
+  border-bottom: 1px solid currentColor;
+  margin-bottom: -1px;
+}
+
+.header__title {
+  grid-row: 2;
+  justify-self: start;
+
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__subtitle {
+  font-weight: bold;
+}
+
+@media (width >= 768px) {
+  .header__title {
+    margin-inline-start: calc(-1 * var(--padding-size));
+  }
+
+  .header__subtitle {
+    max-width: 50%;
+  }
+}
+
+.header__theme-menu {
+  grid-row: 1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--main-gap);
+
+  padding: 0 var(--padding-size);
+}
+
+.main__section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--main-section-gap);
+}
+
+.main__section-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: inherit;
+}
+
+.main__title_h2 {
+  font-size: inherit;
+  color: var(--main-title-color);
+}
+
+.main__title_h3 {
+  font-size: inherit;
+}
+
+.main__title_h4 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+.main__info {
+  margin-block-start: 10px;
+  color: var(--font-color);
+}
+
+@media (width >= 768px) {
+  .main__section {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .main__section-content {
+    grid-row: 1;
+    grid-column: 2 / -1;
+  }
+
+  .main__section_wide .main__title_h2 {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .main__section_wide .main__section-content {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (width >= 1024px) {
+  .main__section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.main__section_how-to-concentrate .main__subtitle {
+  font-weight: normal;
+}
+
+.main__section_by-images {
+  gap: var(--image-gap);
+}
+
+.gallery-item {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (width >= 768px) {
+  .main__section_by-images .main__section-content{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .main__section_by-images .main__title_h2 {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+  }
+
+  .gallery-item:nth-child(2) {
+    grid-row: 1 / span 2;
+    grid-column: 3;
+  }
+
+  .gallery-item:nth-child(3) {
+    grid-row: 2 / span 2;
+    grid-column: 1;
+  }
+
+  .gallery-item:last-child {
+    grid-row: 3;
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (width >= 1024px) {
+  .main__section_what .main__section-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer {
+  display: flex;
+  height: 100vh;
+  min-height: 668px;
+  position: relative;
+
+  padding: var(--padding-size);
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  margin: auto;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--accent-font-color);
+  height: min-content;
 }

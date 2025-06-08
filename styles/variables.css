@@ -1,4 +1,36 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
+:root {
+  --violet: #DB00FF;
+  --pink: 255, 0, 112; /* #FF0070 */
+  --rose: #F1B2CE;
+  --black: #000028;
+
+  --cover-image: url("../images/cover-image-dark.png");
+  --title-color: var(--violet);
+  --main-title-color: rgb(var(--pink));
+  --accent-color: rgb(var(--pink));
+  --accent-color-opacity: rgb(var(--pink), 0.4);
+  --header-accent-color: rgb(var(--pink));
+  --accent-font-color: var(--black);
+  --font-color: var(--rose);
+  --page-bg-color: var(--black);
+
+  --page-font: 'IBM Plex Mono', Arial, sans-serif;
+  --rec-light-display: flex;
+  --font-size: 18px;
+  --title-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --padding-size: 10px;
+  --page-gap: 40px;
+  --menu-gap: 10px;
+  --main-gap: 50px;
+  --main-section-gap: 20px;
+  --image-gap: var(--padding-size);
+}
+
+@media (width >= 768px) {
+  :root {
+    --padding-size: 20px;
+    --page-gap: 60px;
+    --main-gap: 80px;
+    --title-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
