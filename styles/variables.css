@@ -14,7 +14,7 @@
   --font-color: var(--rose);
   --page-bg-color: var(--black);
 
-  --page-font: 'IBM Plex Mono', Arial, sans-serif;
+  --page-font: 'IBM Plex Mono', 'Courier New', monospace;
   --rec-light-display: flex;
   --font-size: 18px;
   --title-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
